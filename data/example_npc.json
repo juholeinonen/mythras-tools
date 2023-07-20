@@ -1,0 +1,17 @@
+{
+    "name": "NPC Name",
+    "image_path": "path/to/image.png",
+    "hitpoints": {
+        "head": 10,
+        "body": 15,
+        "left_arm": 10,
+        "right_arm": 10,
+        "left_leg": 10,
+        "right_leg": 10
+    },
+    "skills": {
+        "Skill 1": 50,
+        "Skill 2": 35,
+        "Skill 3": 45,
+    }
+}
