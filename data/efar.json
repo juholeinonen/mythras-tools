@@ -1,6 +1,7 @@
 {
     "name": "Efar",
-    "image_path": "../images/stick_figure.jpg",
+    "hp_image_path": "../images/stick_figure.jpg",
+    "color_image_path": "../images/stick_figure.svg",
     "hitpoints": {
         "right_leg": 5,
         "left_leg": 5,

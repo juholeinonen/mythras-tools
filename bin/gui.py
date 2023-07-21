@@ -5,6 +5,11 @@ from PyQt5.QtWidgets import QGridLayout, QHBoxLayout
 from PyQt5.QtWidgets import QGraphicsView, QGraphicsScene, QGraphicsTextItem
 from PyQt5.QtGui import QFont
 
+import xml.etree.ElementTree as ET
+
+from PyQt5.QtSvg import QSvgWidget, QSvgRenderer
+from PyQt5.QtGui import QPainter, QColor
+
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 import json
@@ -12,12 +17,26 @@ import json
 HIT_LOCATION_POSITIONS = {
     "right_leg": (120, 175),
     "left_leg": (-30, 175),
-    "abdomen": (5, 3),
-    "chest": (5, 2),
-    "right_arm": (7, 3),
-    "left_arm": (2, 3),
-    "head": (5, 1),
+    "abdomen": (100, 130),
+    "chest": (0, 80),
+    "right_arm": (120, 110),
+    "left_arm": (-30, 110),
+    "head": (-20, 10),
 }
+
+def change_color(svg_file_path, element_id, new_color):
+    # Parse the SVG file
+    tree = ET.parse(svg_file_path)
+
+    # Find the element with the specified ID
+    element = tree.find(f".//*[@id='{element_id}']")
+
+    if element is not None:
+        # Change the fill color of the element
+        element.set('fill', new_color)
+
+    # Write the modified SVG back to the file
+    tree.write(svg_file_path)
 
 
 class NpcWindow(QWidget):
@@ -38,18 +57,23 @@ class NpcWindow(QWidget):
 
         self.init_skills(main_layout)  # initialize the skills
 
-    def init_image(self, layout):
-        pixmap = QPixmap(self.npc_data['image_path'])
-        if pixmap.isNull():
-            print(f"Failed to load image at {self.npc_data['image_path']}")
-        else:
-            # Rescaled QPixmap
-            scaled_pixmap = pixmap.scaled(200, 200, Qt.KeepAspectRatio)
+        # Use the function to change the color of the 'head' part
+        change_color('../images/stick_figure.svg', 'head', 'red')
 
-            # Create QLabel with QPixmap
-            lbl_img = QLabel()
-            lbl_img.setPixmap(scaled_pixmap)
-            layout.addWidget(lbl_img)
+    def init_image(self, layout):
+        # Load the SVG file into a QSvgWidget
+        svg_widget = QSvgWidget(self.npc_data['color_image_path'])
+        svg_widget.renderer().setAspectRatioMode(Qt.KeepAspectRatio)
+        svg_widget.setFixedSize(200, 200)
+        #svg_widget.resize(200, 200)
+
+        # Check if the SVG was loaded correctly
+        if not svg_widget.renderer().isValid():
+            print(f"Failed to load SVG at {self.npc_data['color_image_path']}")
+        else:
+            layout.addWidget(svg_widget)
+
+        svg_widget.setStyleSheet("QSvgWidget { background-color: white; }");
 
     def init_skills(self, layout):
         # create the grid layout
@@ -89,9 +113,9 @@ class NpcWindow(QWidget):
         # create the graphics scene
         scene = QGraphicsScene()
 
-        pixmap = QPixmap(self.npc_data['image_path'])
+        pixmap = QPixmap(self.npc_data['hp_image_path'])
         if pixmap.isNull():
-            print(f"Failed to load image at {self.npc_data['image_path']}")
+            print(f"Failed to load image at {self.npc_data['hp_image_path']}")
         else:
             # Rescaled QPixmap
             scaled_pixmap = pixmap.scaled(200, 200, Qt.KeepAspectRatio)
