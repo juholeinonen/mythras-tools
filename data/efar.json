@@ -1,0 +1,38 @@
+{
+    "name": "Efar",
+    "image_path": "../images/stick_figure.jpg",
+    "hitpoints": {
+        "right_leg": 5,
+        "left_leg": 5,
+        "abdomen": 6,
+        "chest": 7,
+        "right_arm": 4,
+        "left_arm": 4,
+        "head": 5
+    },
+    "standard_skills": {
+        "Athletics": 54,
+        "Brawn": 53,
+        "Endurance": 36,
+        "Evade": 60,
+        "Influence": 48,
+        "Insight": 50,
+        "Locale": 46,
+        "Perception": 55,
+        "Unarmed": 51,
+        "Willpower": 59
+    },
+    "magic_skills": {
+        "Folk Magic": 51
+    },
+    "professional_skills": {
+        "Oratory": 51
+    },
+    "custom_skills": {
+        "Language Common": 60,
+        "Language Draconic": 31
+    },
+    "combat_styles": {
+        "Dragon Queen Raider": 53
+    }
+}

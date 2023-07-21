@@ -1,0 +1,38 @@
+{
+    "name": "Riandur",
+    "image_path": "../images/stick_figure.jpg",
+    "hitpoints": {
+        "right_leg": 6,
+        "left_leg": 6,
+        "abdomen": 7,
+        "chest": 8,
+        "right_arm": 5,
+        "left_arm": 5,
+        "head": 6
+    },
+    "standard_skills": {
+        "Athletics": 58,
+        "Brawn": 51,
+        "Endurance": 66,
+        "Evade": 66,
+        "Influence": 52,
+        "Insight": 45,
+        "Locale": 52,
+        "Perception": 46,
+        "Unarmed": 58,
+        "Willpower": 43
+    },
+    "magic_skills": {
+        "Folk Magic": 55
+    },
+    "professional_skills": {
+        "Oratory": 33
+    },
+    "custom_skills": {
+        "Language Common": 62,
+        "Language Draconic": 45
+    },
+    "combat_styles": {
+        "Dragon Queen Raider": 54
+    }
+}
