@@ -1,10 +1,23 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QVBoxLayout, QWidget, QPushButton, QLabel, QSpinBox
-from PyQt5.QtWidgets import QGridLayout
+from PyQt5.QtWidgets import QGridLayout, QHBoxLayout
+
+from PyQt5.QtWidgets import QGraphicsView, QGraphicsScene, QGraphicsTextItem
+from PyQt5.QtGui import QFont
 
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 import json
+
+HIT_LOCATION_POSITIONS = {
+    "right_leg": (120, 175),
+    "left_leg": (-30, 175),
+    "abdomen": (5, 3),
+    "chest": (5, 2),
+    "right_arm": (7, 3),
+    "left_arm": (2, 3),
+    "head": (5, 1),
+}
 
 
 class NpcWindow(QWidget):
@@ -14,8 +27,18 @@ class NpcWindow(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        layout = QVBoxLayout()
+        main_layout = QVBoxLayout()  # This is the main layout
+        self.setLayout(main_layout)
 
+        images_layout = QHBoxLayout()  # This layout is for the images
+        main_layout.addLayout(images_layout)  # Add the images layout to the main layout
+
+        self.init_image(images_layout)  # initialize the image
+        self.init_hitpoints(images_layout)  # initialize the hitpoints
+
+        self.init_skills(main_layout)  # initialize the skills
+
+    def init_image(self, layout):
         pixmap = QPixmap(self.npc_data['image_path'])
         if pixmap.isNull():
             print(f"Failed to load image at {self.npc_data['image_path']}")
@@ -28,6 +51,7 @@ class NpcWindow(QWidget):
             lbl_img.setPixmap(scaled_pixmap)
             layout.addWidget(lbl_img)
 
+    def init_skills(self, layout):
         # create the grid layout
         grid_layout = QGridLayout()
 
@@ -58,7 +82,40 @@ class NpcWindow(QWidget):
         # add grid layout to the QVBoxLayout
         layout.addLayout(grid_layout)
 
-        self.setLayout(layout)
+    def init_hitpoints(self, layout):
+        # create the graphics view
+        view = QGraphicsView()
+
+        # create the graphics scene
+        scene = QGraphicsScene()
+
+        pixmap = QPixmap(self.npc_data['image_path'])
+        if pixmap.isNull():
+            print(f"Failed to load image at {self.npc_data['image_path']}")
+        else:
+            # Rescaled QPixmap
+            scaled_pixmap = pixmap.scaled(200, 200, Qt.KeepAspectRatio)
+
+        # add the image to the scene
+        scene.addPixmap(scaled_pixmap)
+
+        # add the scene to the view
+        view.setScene(scene)
+
+        # set font for QGraphicsTextItems
+        font = QFont()
+        font.setPointSize(14)
+
+        # for each hit location, add an editable QGraphicsTextItem
+        for hit_location, hp in self.npc_data['hitpoints'].items():
+            x, y = HIT_LOCATION_POSITIONS[hit_location]
+            text_item = QGraphicsTextItem(f"{hit_location}: {hp}")
+            text_item.setFont(font)
+            text_item.setPos(x, y)
+            text_item.setTextInteractionFlags(Qt.TextEditorInteraction)  # make the text item editable
+            scene.addItem(text_item)
+
+        layout.addWidget(view)
 
 if __name__ == '__main__':
     with open('../data/efar.json', 'r') as f:
