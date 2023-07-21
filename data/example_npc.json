@@ -1,6 +1,6 @@
 {
     "name": "NPC Name",
-    "image_path": "path/to/image.png",
+    "image_path": "../images/stick_figure.jpg",
     "hitpoints": {
         "head": 10,
         "body": 15,
@@ -12,6 +12,6 @@
     "skills": {
         "Skill 1": 50,
         "Skill 2": 35,
-        "Skill 3": 45,
+        "Skill 3": 45
     }
 }
