@@ -1,0 +1,36 @@
+d100 Roll,Class,Specialization/Kit
+01-02,Fighter,Sword & Board
+03-04,Fighter,Two-handed Specialist
+05-06,Fighter,Dual-wielding
+07-08,Fighter,Ranged Fighter
+09,Fighter,Weapon Master
+10-12,Magic User,Generalist
+13,Magic User,Evocation Specialist
+14,Magic User,Necromancy Specialist
+15,Magic User,Illusion Specialist
+16,Magic User,Divination Specialist
+17,Magic User,Enchantment Specialist
+18,Magic User,Conjuration Specialist
+19-20,Cleric,War Priest
+21-22,Cleric,Healer
+23,Cleric,Death Domain
+24,Cleric,Nature Domain
+25-26,Cleric,Knowledge Domain
+27-29,Thief,Burglar
+30-31,Thief,Scout
+32-33,Thief,Spy
+34,Thief,Treasure Hunter
+35-42,Thief-Acrobat,
+43-45,Ranger,Beast Master
+46-48,Ranger,Tracker
+49-50,Ranger,Archer
+51-58,Paladin,
+59-66,Arcane Bard,
+67-74,Druidic Bard,
+75-78,Druid,Nature's Warden
+79-80,Druid,Shapeshifter
+81-82,Druid,Weather Caller
+83-90,Berserker,
+91-95,Monk,Way of the Open Hand
+96-99,Monk,Way of the Shadow
+100-102,Monk,Way of the Elements
