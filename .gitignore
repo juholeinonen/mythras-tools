@@ -164,3 +164,8 @@ cython_debug/
 data/*.pdf
 data/basic_output_*.txt
 data/output2txt_*.txt
+
+# Generated character sheets: run the generators anywhere without dirtying git.
+# examples/ holds one committed copy of each, to show what they look like.
+*.xlsx
+!examples/*.xlsx
