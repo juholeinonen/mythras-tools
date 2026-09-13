@@ -38,7 +38,14 @@ python bin/mythras_python_generator.py
 # Generate d20 Classic Fantasy variant
 python bin/mythras_d20_generator.py
 # Output: Mythras_d20_Classic_Fantasy_Character_Sheet.xlsx
+
+# Blank sheets to print and fill in by hand (A4, one page each)
+python bin/mythras_print_sheet.py [standard|d20|both] [-o DIR]
+# Output: Mythras_Character_Sheet_Print.xlsx, Mythras_d20_Classic_Fantasy_Character_Sheet_Print.xlsx
 ```
+
+Generated `.xlsx` files are gitignored everywhere except `examples/`, which holds one committed
+copy of each sheet. Regenerate them there when a generator changes.
 
 ### NPC Visualization GUI
 
