@@ -94,9 +94,9 @@ def create_mythras_character_sheet():
     ws[f'D{char_info_row + 5}'].font = subheader_font
     
     ws[f'D{char_info_row + 6}'] = "Cultural Used:"
-    ws[f'E{char_info_row + 6}'] = '=SUM(B:B)'
+    ws[f'E{char_info_row + 6}'] = '=SUM(I:I)'
     ws[f'D{char_info_row + 7}'] = "Career Used:"
-    ws[f'E{char_info_row + 7}'] = '=SUM(C:C)'
+    ws[f'E{char_info_row + 7}'] = '=SUM(J:J)'
     ws[f'D{char_info_row + 8}'] = "Free Used:"
     ws[f'E{char_info_row + 8}'] = '=SUM(K:K)'
     
