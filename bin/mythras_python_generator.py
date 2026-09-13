@@ -320,33 +320,33 @@ def create_mythras_character_sheet():
 
 def main():
     """Generate and save the Mythras character sheet."""
-    print("🎲 Generating Mythras Character Sheet...")
+    print("Generating Mythras Character Sheet...")
     
     try:
         wb = create_mythras_character_sheet()
         filename = "Mythras_Character_Sheet_Enhanced.xlsx"
         wb.save(filename)
         
-        print(f"✅ Success! Character sheet saved as '{filename}'")
-        print("\n📋 Features included:")
-        print("  • Automatic characteristic-to-skill calculations")
-        print("  • Point tracking for Cultural/Career/Free phases")
-        print("  • Culture and Career skill identification")
-        print("  • Professional skills section with common combinations")
-        print("  • Reference sheet with rules and formulas")
-        print("  • Conditional formatting for overspending alerts")
-        print("\n🎯 Usage:")
+        print(f"Success! Character sheet saved as '{filename}'")
+        print("\nFeatures included:")
+        print("  - Automatic characteristic-to-skill calculations")
+        print("  - Point tracking for Cultural/Career/Free phases")
+        print("  - Culture and Career skill identification")
+        print("  - Professional skills section with common combinations")
+        print("  - Reference sheet with rules and formulas")
+        print("  - Conditional formatting for overspending alerts")
+        print("\nUsage:")
         print("  1. Open the Excel file")
-        print("  2. Enter your characteristics in column N")
-        print("  3. Mark skills as 'Culture' or 'Career' in columns F/G")
-        print("  4. Add skill points in columns H/I/J")
-        print("  5. Watch the magic happen! ✨")
+        print("  2. Enter your characteristics in column O")
+        print("  3. Mark skills with 'x' in the Cultural/Career columns (B/C)")
+        print("  4. Add skill points in columns I/J/K")
+        print("  5. Watch the magic happen!")
         
     except ImportError:
-        print("❌ Error: openpyxl not installed")
-        print("📦 Install with: pip install openpyxl")
+        print("Error: openpyxl not installed")
+        print("Install with: pip install openpyxl")
     except Exception as e:
-        print(f"❌ Error creating sheet: {e}")
+        print(f"Error creating sheet: {e}")
 
 if __name__ == "__main__":
     main()

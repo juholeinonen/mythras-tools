@@ -354,39 +354,39 @@ def create_mythras_d20_character_sheet():
 
 def main():
     """Generate and save the Mythras d20 Classic Fantasy character sheet."""
-    print("🎲 Generating Mythras d20 Classic Fantasy Character Sheet...")
+    print("Generating Mythras d20 Classic Fantasy Character Sheet...")
     
     try:
         wb = create_mythras_d20_character_sheet()
         filename = "Mythras_d20_Classic_Fantasy_Character_Sheet.xlsx"
         wb.save(filename)
         
-        print(f"✅ Success! Character sheet saved as '{filename}'")
-        print("\n📋 Features included:")
-        print("  • Automatic characteristic-to-skill calculations")
-        print("  • Point tracking for Cultural/Career/Class/Free phases")
-        print("  • Culture, Career, and Class skill identification")
-        print("  • d20 conversion formulas (skill ÷ 5 + bonus)")
-        print("  • Professional skills section with formulas")
-        print("  • Reference sheet with d20 rules and formulas")
-        print("  • Conditional formatting for overspending alerts")
-        print("\n🎯 d20 Classic Fantasy Features:")
-        print("  • Added Class phase with separate point pool")
-        print("  • d20 Value column (skill ÷ 5, rounded down)")
-        print("  • d20 Bonus column (remainder from division)")
-        print("  • Point tracking sums entire columns for accuracy")
-        print("\n🎮 Usage:")
+        print(f"Success! Character sheet saved as '{filename}'")
+        print("\nFeatures included:")
+        print("  - Automatic characteristic-to-skill calculations")
+        print("  - Point tracking for Cultural/Career/Class/Free phases")
+        print("  - Culture, Career, and Class skill identification")
+        print("  - d20 conversion formulas (skill / 5 + bonus)")
+        print("  - Professional skills section with formulas")
+        print("  - Reference sheet with d20 rules and formulas")
+        print("  - Conditional formatting for overspending alerts")
+        print("\nd20 Classic Fantasy Features:")
+        print("  - Added Class phase with separate point pool")
+        print("  - d20 Value column (skill / 5, rounded down)")
+        print("  - d20 Bonus column (remainder from division)")
+        print("  - Point tracking sums entire columns for accuracy")
+        print("\nUsage:")
         print("  1. Open the Excel file")
         print("  2. Enter your characteristics in column S")
         print("  3. Mark skills as 'x' in Cultural/Career/Class columns")
         print("  4. Add skill points in columns J/K/L/M")
-        print("  5. Use d20 Value + Bonus for d20 system rolls! ⚄")
+        print("  5. Use d20 Value + Bonus for d20 system rolls!")
         
     except ImportError:
-        print("❌ Error: openpyxl not installed")
-        print("📦 Install with: pip install openpyxl")
+        print("Error: openpyxl not installed")
+        print("Install with: pip install openpyxl")
     except Exception as e:
-        print(f"❌ Error creating sheet: {e}")
+        print(f"Error creating sheet: {e}")
 
 if __name__ == "__main__":
     main()
